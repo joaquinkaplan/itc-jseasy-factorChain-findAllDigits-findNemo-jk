@@ -18,13 +18,20 @@ factorChain([2, 4, 6, 7, 12]) ➞ false
 factorChain([10, 1]) ➞ false
 */
 
+//EXPLAINED JK: 
+// - THE ARGUMENT IS THE ARRAY YOU INCLUDE WHEN YOU CALL THE FUNCTION. 
+// - MAKE i START AT THE FIRST ELEMENT OF THE ARRAY (=0, BECAUSE JS IS ZERO-BASED), AND EXECUTE i++ WHILE THE LENGTH OF THE ARRAY - 1 IS GREATER THAN i, WHICH MEANS THAT i WILL EMBRACE ALL THE ARRAY, STOPPING WHEN THE FINAL ELEMENT IS REACHED. 
+// - AFTER THAT, IF STATEMENT: % MODULUS OPERATOR TO DETERMINE THE FACTOR CHAINING (!=0 || ==0). 
+// - RETURN FALSE OR TRUE DEPPENDING ON PREVIOUS OPERATION
+
 function factorChain(array) {
   for (let i = 0; i < array.length - 1; i++) {
-    if (array[i+1] % array[i]) {
+    if (array[i+1] % array[i] !=0) {
       return false;            
+    } else if (array[i+1] % array[i] ==0) {
+      return true;
     }
   }
-  return true;
 }
 
 factorChain([1, 2, 4, 8, 16, 32])
